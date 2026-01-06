@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "author": "IoT Expert",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-v1", "id": "esp32", "top": 0, "left": 0, "attrs": {} },
+    { "type": "wokwi-dht11", "id": "dht", "top": -150, "left": -150, "attrs": {} },
+    { "type": "wokwi-pir-sensor", "id": "pir", "top": -150, "left": 100, "attrs": {} },
+    { "type": "wokwi-photoresistor", "id": "ldr", "top": 150, "left": -150, "attrs": {} },
+    { "type": "wokwi-oled-12864-i2c", "id": "oled", "top": 150, "left": 100, "attrs": {} },
+    { "type": "wokwi-relay-module", "id": "relay_fan", "top": -250, "left": -20, "attrs": {} },
+    { "type": "wokwi-relay-module", "id": "relay_light", "top": 250, "left": -20, "attrs": {} }
+  ],
+  "connections": [
+    [ "esp32:GND.1", "dht:GND", "black", [ "v0" ] ],
+    [ "esp32:3V3", "dht:VCC", "red", [ "v0" ] ],
+    [ "esp32:D4", "dht:SDA", "blue", [ "v0" ] ],
+
+    [ "esp32:GND.1", "pir:GND", "black", [ "v0" ] ],
+    [ "esp32:VIN", "pir:VCC", "red", [ "v0" ] ],
+    [ "esp32:D13", "pir:OUT", "orange", [ "v0" ] ],
+
+    [ "esp32:D21", "oled:SDA", "green", [ "v0" ] ],
+    [ "esp32:D22", "oled:SCL", "yellow", [ "v0" ] ],
+    [ "esp32:GND.1", "oled:GND", "black", [ "v0" ] ],
+    [ "esp32:3V3", "oled:VCC", "red", [ "v0" ] ],
+
+    [ "esp32:D12", "relay_fan:IN", "purple", [ "v0" ] ],
+    [ "esp32:GND.1", "relay_fan:GND", "black", [ "v0" ] ],
+    [ "esp32:VIN", "relay_fan:VCC", "red", [ "v0" ] ],
+
+    [ "esp32:D14", "relay_light:IN", "purple", [ "v0" ] ],
+    [ "esp32:GND.1", "relay_light:GND", "black", [ "v0" ] ],
+    [ "esp32:VIN", "relay_light:VCC", "red", [ "v0" ] ],
+
+    [ "esp32:D34", "ldr:SIG", "white", [ "v0" ] ],
+    [ "esp32:GND.1", "ldr:GND", "black", [ "v0" ] ],
+    [ "esp32:3V3", "ldr:VCC", "red", [ "v0" ] ]
+  ]
+}
